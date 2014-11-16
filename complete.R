@@ -12,6 +12,11 @@ complete <- function(directory, id = 1:332) {
     ## ...
     ## where 'id' is the monitor ID number and 'nobs' is the
     ## number of complete cases
+    
+    if (id[1] != sort(id)[1]) {
+        id <- sort(id)
+    }
+    
     nobs <- c()
     for (each in select_files(directory, id)) {
         file <- read_file(each)
